@@ -3,7 +3,7 @@ services:
     init: true
     environment:
       DISPLAY:
-      PULSE_SERVER: /run/pulse/native
+      PULSE_SERVER: /run/pulse/native # this must match below
     build: 
       context: .
       dockerfile: Dockerfile
@@ -15,6 +15,13 @@ services:
       - "$PWD:/opt/project"
       - "$PWD/config:/root/.config"
       - "$PWD/log:/root/.local/share"
+      - "$PWD/.config/gqrx:/root/.config/gqrx"
+      - "/dev/shm:/dev/shm"
+      - "/run/user/1000/pulse:/run/pulse:ro" # this much match above
+      - "/var/lib/dbus:/var/lib/dbus"
+      - "/dev/snd:/dev/snd"
+    devices:
+      - "/dev/dri:/dev/dri"
     network_mode: "host"
     command:
       - /bin/bash
