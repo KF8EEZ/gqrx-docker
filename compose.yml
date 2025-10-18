@@ -1,0 +1,21 @@
+services:
+  gqrx:
+    init: true
+    environment:
+      DISPLAY:
+      PULSE_SERVER: /run/pulse/native
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    user: 0:0
+    image: qgrx:develop
+    volumes:
+      # passing through this file allows opening windows from the container in your host computer
+      - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+      - "$PWD:/opt/project"
+      - "$PWD/config:/root/.config"
+      - "$PWD/log:/root/.local/share"
+    network_mode: "host"
+    command:
+      - /bin/bash
+    working_dir: /opt/project
