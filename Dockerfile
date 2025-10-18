@@ -15,6 +15,7 @@ RUN apt-get update && \
     gr-osmosdr \
     pulseaudio \
     gstreamer1.0-pulseaudio \
+    libpulse-dev \
     cmake \
     less \
     wget
