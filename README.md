@@ -1,4 +1,7 @@
 
+## PulseAudio
+
+The host computer must be running PulseAudio
 
 ## References
 
