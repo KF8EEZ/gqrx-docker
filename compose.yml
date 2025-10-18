@@ -22,6 +22,7 @@ services:
       - "/dev/snd:/dev/snd"
     devices:
       - "/dev/dri:/dev/dri"
+      - "/dev/bus/usb/001/005"
     network_mode: "host"
     command:
       - /bin/bash
