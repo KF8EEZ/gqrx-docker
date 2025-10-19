@@ -22,7 +22,8 @@ services:
       - "/dev/snd:/dev/snd"
     devices:
       - "/dev/dri:/dev/dri"
-      - "/dev/bus/usb/001/005"
+      #- "/dev/bus/usb/001/006" # this may change when you plug/unplug device
+      - "/dev/bus/usb/002/002" # this may change when you plug/unplug device
     network_mode: "host"
     command:
       - /bin/bash
